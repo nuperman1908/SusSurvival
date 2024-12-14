@@ -25,7 +25,7 @@ public class Arrow : MonoBehaviour
     public void Init(float damage, Vector3 dir)
     {
         this.damage = damage;
-        rigid.velocity = dir * speed;
+        rigid.linearVelocity = dir * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,7 +37,7 @@ public class Arrow : MonoBehaviour
 
         if (!collision.CompareTag("Enemy")) return;
 
-            rigid.velocity = Vector2.zero;
+            rigid.linearVelocity = Vector2.zero;
             gameObject.SetActive(false);
     }
     private void OnTriggerExit2D(Collider2D collision)

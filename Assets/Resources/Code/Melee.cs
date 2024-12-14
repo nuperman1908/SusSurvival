@@ -17,7 +17,7 @@ public class Melee : MonoBehaviour
     public void Init(float damage, Vector3 dir)
     {
         this.damage = damage;
-        rigid.velocity = dir * 7f;
+        rigid.linearVelocity = dir * 7f;
         timeCD = maxTime;
     }
     private void FixedUpdate()

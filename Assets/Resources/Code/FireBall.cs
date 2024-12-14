@@ -26,7 +26,7 @@ public class FireBall : MonoBehaviour
     {
         this.damage = damage;
         this.per = per;
-        rigid.velocity = dir * speed;
+        rigid.linearVelocity = dir * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +43,7 @@ public class FireBall : MonoBehaviour
 
             if (per < 0)
             {
-                rigid.velocity = Vector2.zero;
+                rigid.linearVelocity = Vector2.zero;
                 gameObject.SetActive(false);
             }
 
