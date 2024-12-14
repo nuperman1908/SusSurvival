@@ -21,7 +21,6 @@ public class Room3 : MonoBehaviour
     {
         if (!isClear &&collision.CompareTag("Player"))
         {
-        timer = 100f;
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.SetActive(true);
         transform.GetChild(2).gameObject.SetActive(true);
@@ -31,7 +30,7 @@ public class Room3 : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!GameManager.instance.isPause)
+        if (!GameManager.instance.isPause && isRunning)
         {
             timer -= Time.fixedDeltaTime;
         }
