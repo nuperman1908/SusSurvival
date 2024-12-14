@@ -31,8 +31,9 @@ public class Room4 : MonoBehaviour
 
         }
 
-        if (!transform.GetChild(1).GetComponent<Level1Boss>().isAlive)
+        if (!transform.GetChild(1).GetComponent<Level1Boss>().isAlive && !isClear)
         {
+            GameManager.instance.BossKillPopup();
             bossHUD.SetActive(false);
             isClear = true;
         }

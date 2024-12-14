@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject pausePanel;
     public Level1Boss boss;
     public bool isPause;
+    public GameObject clearTxt, bosskillTxt;
     private void Awake()
     {
         instance = this;
@@ -57,4 +59,29 @@ public class GameManager : MonoBehaviour
         isPause = true;
     }
 
+    public void ClearPopup()
+    {
+        clearTxt.SetActive(true);
+        clearTxt.transform.DOMoveY(clearTxt.transform.position.y + 30f, 0.3f)
+            .OnComplete(() =>
+            {
+                DOVirtual.DelayedCall(1.5f, () =>
+                {
+                    clearTxt.SetActive(false);
+                    clearTxt.transform.DOMoveY(clearTxt.transform.position.y - 30f, 0);
+                });
+            });
+    }    
+    public void BossKillPopup()
+    {
+        bosskillTxt.SetActive(true);
+        bosskillTxt.transform.DOMoveY(bosskillTxt.transform.position.y + 100f, 0.3f)
+            .OnComplete(() => {
+                DOVirtual.DelayedCall(1.5f, () =>
+                {
+                    bosskillTxt.SetActive(false);
+                    bosskillTxt.transform.DOMoveY(bosskillTxt.transform.position.y - 30f, 0);
+                });
+            });
+    }
 }

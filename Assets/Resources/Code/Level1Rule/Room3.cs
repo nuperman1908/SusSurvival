@@ -35,7 +35,7 @@ public class Room3 : MonoBehaviour
         {
             timer -= Time.fixedDeltaTime;
         }
-        if (timer <= 0 && player.isLive && isRunning)
+        if (timer <= 0 && player.isLive && isRunning && !isClear)
         {
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(false);
@@ -44,6 +44,7 @@ public class Room3 : MonoBehaviour
             isClear = true;
             hud.SetActive(false);
             SFXPlay.instance.PlayWin();
+            GameManager.instance.ClearPopup();
         }
     }
 }

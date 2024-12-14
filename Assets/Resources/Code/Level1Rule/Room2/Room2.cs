@@ -23,8 +23,9 @@ public class Room2 : MonoBehaviour
         {
             transform.GetChild(2).gameObject.SetActive(true);
         }
-        if (transform.GetChild(1).GetComponent<CheckClear>().isClear && transform.GetChild(2).GetComponent<CheckClear>().isClear)
+        if (transform.GetChild(1).GetComponent<CheckClear>().isClear && transform.GetChild(2).GetComponent<CheckClear>().isClear && !isClear)
         {
+            GameManager.instance.ClearPopup();
             isClear = true;
             SFXPlay.instance.PlayWin();
         }
